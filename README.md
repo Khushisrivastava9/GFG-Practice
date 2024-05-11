@@ -1,9 +1,9 @@
-# Geeks for Geeks Daily Practice - C++
+# Geeks for Geeks Daily Practice - C++😊
 
-## Overview:
+## Overview✨:
 This repository is created to track my daily practice of programming problems sourced from Geeks for Geeks, focusing on C++ solutions. Geeks for Geeks provides a plethora of problems covering various topics such as data structures, algorithms, dynamic programming, and more. By regularly solving these problems, I aim to improve my problem-solving skills, algorithmic thinking, and proficiency in C++ programming.
 
-## Benefits of Daily Practice:
+## Benefits of Daily Practice🚀:
 - **Skill Improvement**: Regular practice helps sharpen problem-solving skills and reinforces programming concepts.
 - **Algorithmic Thinking**: Solving diverse problems fosters the development of algorithmic thinking, enabling efficient problem-solving strategies.
 - **Language Proficiency**: Practicing in C++ enhances proficiency in the language, including syntax, standard library usage, and best practices.
