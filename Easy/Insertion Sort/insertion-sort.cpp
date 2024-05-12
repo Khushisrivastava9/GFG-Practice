@@ -14,29 +14,28 @@ void printArray(int arr[], int size)
 
 
 // } Driver Code Ends
+
 class Solution
 {
     public:
-    void insert(int arr[], int i)
+    void insert(int arr[], int i,int n)
     {
-        for(int j=1;j<i;j++){
-            int temp=arr[j];
-            int k=j-1;
-            for(;k>=0;k--){
-                if(arr[k]>temp){
-                    arr[k+1]=arr[k];
-                }else{
-                    break;
-                }
-            }
-            arr[k+1]=temp;
+        if(i==n) return;
+        int j=i;
+        while(j>0 && arr[j-1]>arr[j]){
+            int temp=arr[j-1];
+            arr[j-1]=arr[j];
+            arr[j]=temp;
+            j--;
         }
+        insert(arr,i+1,n);
+        
     }
      public:
     //Function to sort the array using insertion sort algorithm.
     void insertionSort(int arr[], int n)
     {
-        insert(arr,n);
+        insert(arr,0,n);
     }
 };
 
