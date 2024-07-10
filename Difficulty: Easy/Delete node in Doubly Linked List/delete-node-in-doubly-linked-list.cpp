@@ -35,22 +35,30 @@ struct Node
 
 class Solution {
   public:
-   Node*findnode(Node*head,int x)
-  {
-      int count=1;
-      Node*temp=head;
-      while(count!=x)
-      {
-          temp=temp->next;
-          count++;
-      }
-      return temp->prev;
-  }
     Node* deleteNode(Node* head, int x) {
-        if(x==1)return head->next;
-        Node*temp=findnode(head,x);
-        temp->next->prev=temp;
-        temp->next=temp->next->next;
+        if(x==1){
+            Node* temp=head;
+            head=head->next;
+            head->prev=NULL;
+            delete temp;
+            return head;
+            
+        }
+        Node* temp=head;
+        while(x>2){
+            temp=temp->next;
+            x--;
+        }
+        Node* curr=temp->next;
+        if(curr->next==NULL){
+            temp->next=NULL;
+            delete curr;
+            return head;
+        }
+        Node* forw=curr->next;
+        temp->next=forw;
+        forw->prev=temp;
+        delete curr;
         return head;
     }
 };
