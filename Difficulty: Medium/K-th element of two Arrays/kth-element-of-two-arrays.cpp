@@ -4,53 +4,52 @@ using namespace std;
 
 
 // } Driver Code Ends
-class Solution{
-    public:
-    int kthElement( int k,vector<int> arr1,vector< int> arr2)
-    {        
-        int n=arr1.size();
-        int m=arr2.size();
-        int i=0,j=0;
-        int idx=0;
-        
-        while(i<n && j<m){
-            if(arr1[i]<arr2[j]){
-                idx++;
-                if(idx==k){
-                    return arr1[i];
-                }
-                i++;
-            }
-            else{
-                idx++;
-                if(idx==k){
-                    return arr2[j];
-                
-                }
-                j++;
-            }
-        }
-        while(i<n){
+class Solution {
+  public:
+    int kthElement(vector<int>& a, vector<int>& b, int k) {
+        int n = a.size();
+    int m = b.size();
+    int i = 0, j = 0;
+    int idx = 0;
+
+    // Traverse both arrays
+    while (i < n && j < m) {
+        if (a[i] < b[j]) {
             idx++;
-            if(idx==k){
-                return arr1[i];
-                
+            if (idx == k) {
+                return a[i];
             }
             i++;
-            
-        }
-        while(j<m){
+        } else {
             idx++;
-            if(idx==k){
-                return arr2[j];
-                
+            if (idx == k) {
+                return b[j];
             }
             j++;
         }
-        return -1;
+    }
+
+    // Traverse remaining elements in 'a'
+    while (i < n) {
+        idx++;
+        if (idx == k) {
+            return a[i];
+        }
+        i++;
+    }
+
+    // Traverse remaining elements in 'b'
+    while (j < m) {
+        idx++;
+        if (idx == k) {
+            return b[j];
+        }
+        j++;
+    }
+
+    return -1; // Default case, should not occur for valid input
     }
 };
-
 
 //{ Driver Code Starts.
 
@@ -65,22 +64,22 @@ int main() {
         cin.ignore();
         string input;
         int num;
-        vector<int> arr1, arr2;
+        vector<int> a, b;
 
         getline(cin, input);
         stringstream s2(input);
         while (s2 >> num) {
-            arr1.push_back(num);
+            a.push_back(num);
         }
 
         getline(cin, input);
         stringstream s3(input);
         while (s3 >> num) {
-            arr2.push_back(num);
+            b.push_back(num);
         }
 
         Solution ob;
-        cout << ob.kthElement(k, arr1, arr2) << endl;
+        cout << ob.kthElement(a, b, k) << endl << "~\n";
     }
     return 0;
 }
