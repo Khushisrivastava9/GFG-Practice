@@ -1,6 +1,4 @@
 //{ Driver Code Starts
-// Initial template for C++
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,47 +8,58 @@ using namespace std;
 
 class Solution {
   public:
-    // nums: given vector
-    // return the Product vector P that hold product except self at each index
-    vector<long long int> productExceptSelf(vector<long long int>& nums) {
-         long long product = 1;
-        vector<long long>ans;
-        for(int i = 0; i < nums.size(); i++) {
-            product = 1;
-            for(int j = 0; j < nums.size(); j++) {
-            if(i != j ){
-                product *= nums[j];
-            }
-        }
-        ans.push_back(product);
-        }
-        return ans;
+    vector<int> productExceptSelf(vector<int>& arr) {
+        int n=arr.size();
+       vector<int>left(n);
+       vector<int>right(n);
+       vector<int>result(n);
+       left[0]=1;
+       right[n-1]=1;
+       
+       for(int i=1;i<n;i++){
+           left[i]=left[i-1]*arr[i-1];
+       }
+       for(int i=n-2;i>=0;i--){
+           right[i]=right[i+1]*arr[i+1];
+       }
+       for(int i=0;i<n;i++){
+           result[i]=left[i]*right[i];
+       }
+       return result;
     }
 };
 
 
 //{ Driver Code Starts.
+
 int main() {
-    int t; // number of test cases
+
+    int t;
     cin >> t;
+    cin.ignore();
+
     while (t--) {
-        int n; // size of the array
-        cin >> n;
-        vector<long long int> arr(n), vec(n);
+        vector<int> arr;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
 
-        for (int i = 0; i < n; i++) // input the array
-        {
-            cin >> arr[i];
+        while (ss >> number) {
+            arr.push_back(number);
         }
-        Solution obj;
-        vec = obj.productExceptSelf(arr); // function call
 
-        for (int i = 0; i < n; i++) // print the output
-        {
-            cout << vec[i] << " ";
+        Solution obj;
+        vector<int> res = obj.productExceptSelf(arr);
+
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
         }
         cout << endl;
+        cout << "~\n";
     }
+
     return 0;
 }
+
 // } Driver Code Ends
