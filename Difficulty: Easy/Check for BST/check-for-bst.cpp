@@ -37,6 +37,7 @@ class Solution
 
 
 
+
 //{ Driver Code Starts.
 
 // Function to Build Tree
@@ -131,6 +132,7 @@ int main() {
 
         else
             cout << "false\n";
+        cout << "~" << endl;
     }
     return 0;
 }
