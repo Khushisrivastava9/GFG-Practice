@@ -1,5 +1,5 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 
@@ -9,7 +9,7 @@ class Solution
 {
     public:
     //Function to check if brackets are balanced or not.
-    bool ispar(string x)
+    bool isBalanced(string &x)
     {
         stack<char> st;
         for(int i=0;i<x.size();i++){
@@ -41,21 +41,23 @@ class Solution
 
 };
 
+
 //{ Driver Code Starts.
 
-int main()
-{
-   int t;
-   string a;
-   cin>>t;
-   while(t--)
-   {
-       cin>>a;
-       Solution obj;
-       if(obj.ispar(a))
-        cout<<"balanced"<<endl;
-       else
-        cout<<"not balanced"<<endl;
-   }
+int main() {
+    int t;
+    string a;
+    cin >> t;
+    while (t--) {
+        cin >> a;
+        Solution obj;
+        if (obj.isBalanced(a))
+            cout << "true" << endl;
+        else
+            cout << "false" << endl;
+
+        cout << "~"
+             << "\n";
+    }
 }
 // } Driver Code Ends
